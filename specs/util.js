@@ -22,10 +22,10 @@ var expect = chai.expect;
 util.setControlFlow = function (delay) {
   var origFn = browser.driver.controlFlow().execute;
 
-  browser.driver.controlFlow().execute = function() {
+  browser.driver.controlFlow().execute = function () {
     var args = arguments;
 
-    origFn.call(browser.driver.controlFlow(), function() {
+    origFn.call(browser.driver.controlFlow(), function () {
       return protractor.promise.delayed(delay);
     });
 
@@ -40,11 +40,21 @@ util.setControlFlow = function (delay) {
  * @param {Object} element to focus on
  */
 util.scrollToElement = function (element) {
+  moveViewTo(element);
+  moveCursorTo(element);
+};
+
+function moveViewTo(element) {
   element.getLocation().then(function (loc) {
-    browser.executeScript('window.scrollTo(' + loc.x + ',' + loc.y +');');
+    browser.executeScript('window.scrollTo(' + loc.x + ',' + loc.y + ');');
   });
   return protractor.promise.delayed(1000);
-};
+}
+
+function moveCursorTo(element) {
+  return browser.actions().mouseMove(element).perform();
+}
+
 
 /**
  * Take a screenshot of the page and store data on that screenshot
@@ -125,7 +135,3 @@ function generateData(data) {
   });
   return true;
 }
-
-
-
-

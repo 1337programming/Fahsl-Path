@@ -1,8 +1,7 @@
 // To run this e2e test: protractor test/protractor-e2e-config.js
 // This config file is used just to run one single test, to make sure that all javascripts are loaded - will be put into Jenkins workflow
 var argv = require('yargs').argv;
-var protractorConfig = require('../grunt/pdiff/bin/pdiff-config.json');
-var config = protractorConfig.protractor;
+var config = require('./config.json');
 var multiCapabilities = [], i, obj;
 
 for (i = 0; i < config.browsers.length; i++) {
@@ -27,7 +26,7 @@ if (argv.demo) {
 }
 
 exports.config = {
-  specs: ['e2e/e2e_automated-test-demo-sync.js'],
+  specs: ['specs/e2e-demo-spec.js'],
   seleniumAddress: config.seleniumAddress,
   directConnect: config.directConnect,
   chromeDriver: config.chromeDriver,

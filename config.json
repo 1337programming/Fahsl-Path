@@ -1,3 +1,48 @@
 {
-  
+  "params": {
+    "proxyUsername": "",
+    "proxyPassword": "",
+    "oldServer": "",
+    "newServer": "",
+    "outputPath": "report/pdiff/images/raw",
+    "imageType": "png"
+  },
+  "specs": ["e2e/*.spec.js"],
+  "screenShotOutput": "report/pdiff/images/raw",
+  "seleniumAddress": "http://0.0.0.0:4444/wd/hub",
+  "directConnect": true,
+  "chromeDriver": "./node_modules/chromedriver/lib/chromedriver/chromedriver",
+  "jasmineNodeOpts": {
+    "showColors": true,
+    "defaultTimeoutInterval": 600000
+  },
+  "mochaOpts": {
+    "colors": true,
+    "debug": true,
+    "timeout": 600000,
+    "ui": "bdd",
+    "reporter": "spec",
+    "slow": 3000
+  },
+  "browsers": [
+    {
+      "active": true,
+      "name": "chrome",
+      "chromeOptions": {
+        "args": ["show-fps-counter=true"]
+      }
+      },
+    {
+      "name": "ie",
+      "active": false
+      },
+    {
+      "name": "firefox",
+      "active": false
+      },
+    {
+      "name": "safari",
+      "active": false
+      }
+    ]
 }
