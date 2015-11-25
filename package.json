@@ -1,0 +1,30 @@
+{
+  "name": "Fahsl-Path",
+  "version": "1.0.0",
+  "description": "Protractor example scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1337programming/Fahsl-Path.git"
+  },
+  "keywords": [
+    "Protractor"
+  ],
+  "author": "Patrick Opie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1337programming/Fahsl-Path/issues"
+  },
+  "homepage": "https://github.com/1337programming/Fahsl-Path",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.1.0",
+    "fs-extra": "^0.26.2",
+    "mocha": "^2.3.4",
+    "protractor": "^3.0.0",
+    "yargs": "^3.30.0"
+  }
+}
