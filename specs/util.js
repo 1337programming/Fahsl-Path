@@ -40,20 +40,11 @@ util.setControlFlow = function (delay) {
  * @param {Object} element to focus on
  */
 util.scrollToElement = function (element) {
-  moveViewTo(element);
-  moveCursorTo(element);
-};
-
-function moveViewTo(element) {
   element.getLocation().then(function (loc) {
     browser.executeScript('window.scrollTo(' + loc.x + ',' + loc.y + ');');
   });
   return protractor.promise.delayed(1000);
-}
-
-function moveCursorTo(element) {
-  return browser.actions().mouseMove(element).perform();
-}
+};
 
 
 /**

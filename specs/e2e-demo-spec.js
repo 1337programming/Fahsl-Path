@@ -36,7 +36,7 @@ if (config.demo) {
  ******************************************
  */
 
-describe('Should click around a ton', function () {
+describe('Should demo Fahsl Path!', function () {
 
   it('Get to shop page', function () {
     browser.get('https://lemond.cc/#!/').then(function () {
