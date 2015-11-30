@@ -43,17 +43,23 @@ describe('Should demo Fahsl Path!', function () {
       var storeButton = element(by.xpath('//a[@data-target="nav-store"]'));
       browser.wait(EC.elementToBeClickable(storeButton), 5000);
       storeButton.click().then(function () {
+        browser.sleep(5000);
         var bottles = element(by.xpath('//img[@src="assets/StoreHomePage_bottle-1.jpg"]'));
-        util.scrollToElement(bottles);
-        var washoe = element(by.xpath('//img[@src="assets/StoreHomePage_Washoe.jpg"]'));
-        util.scrollToElement(washoe);
-        browser.sleep(4000);
+        browser.ignoreSynchronization = true;
+        browser.actions().mouseMove(bottles).perform().then(function () {
+          browser.ignoreSynchronization = false;
+          util.scrollToElement(bottles);
+
+          var washoe = element(by.xpath('//img[@src="assets/StoreHomePage_Washoe.jpg"]'));
+          util.scrollToElement(washoe);
+          browser.sleep(4000);
+        });
+
       });
     })
   });
 
   it('Scroll through products', function () {
-    browser.pause();
     var washoe = element(by.xpath('//img[@src="assets/StoreHomePage_Washoe.jpg"]'));
     util.scrollToElement(washoe);
     var trainers = element(by.xpath('//img[@src="assets/StoreHomePage_Trainer.jpg"]'));
